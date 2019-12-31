@@ -17,7 +17,7 @@ If you use the following line in the WordPress Editor:
     Regular [t s="bold"]bold[/t] regular.
 
 The result on the published page will be:
-Regular *bold* regular.
+Regular **bold** regular.
 
 The result as HTML will be:
 
