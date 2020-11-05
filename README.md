@@ -10,7 +10,10 @@ Includes one shortcode:
 
 * [t]Content[/t]
 
-T (typography) accepts one parameter: S (style)
+T (typography) accepts two parameters: 
+
+S (style)
+ELM (element)
 
 If you use the following line in the WordPress Editor:
 

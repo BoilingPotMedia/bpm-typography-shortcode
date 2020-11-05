@@ -7,21 +7,76 @@ Version: 1.0
 License: 
 */
 
-add_shortcode( 't', 'bpm_typography_shortcode' );
-function bpm_typography_shortcode($atts, $content = null) {
+class Inline__Typography {
 
-    $a = shortcode_atts( array( 
-      's' => '',
-    ), $atts );
+
+	public function __construct() {
+    	$this->Inline__Typography__Callback();
+	}   
 		
-    // Class
-    $classes='type ';
-    if($atts['s'] != '') {
-      $classes .= $atts['s'];
+
+    public function Inline__Typography__Callback(){
+        add_shortcode( 't' , array( $this, 'bpm__content__t_shortcode_callback'));    
     }
-	
-    return '<span class="'.$classes.'">'.do_shortcode($content).'</span>';
+    
+
+ 	/* bpm__content__hr_shortcode_callback
+	 *
+	 * Usage
+	 * [t &params ]
+	 *
+	 * Params
+	 *
+	 * @ s			- (optional) shorthand for style - pass any CSS classes
+	 * @ elm		- (optional) defaults to 'span', pass any valid HTML elm
+	 */	
+	public function bpm__content__t_shortcode_callback( $atts, $content = NULL ) {
+
+		$a = shortcode_atts( array(
+			's' => '',
+			'elm' => '',
+		), $atts );		
+
+		$id = bpm_make_id(5);
+		
+		$classes = 'type ';
+		$classes = $atts['s'] ?? '';
+		
+		$element = $atts['elm'] ?? 'span';
+  		
+		ob_start();
+		?>
+		
+		<?php echo '<'.$element.' class="'. $classes .'" >'; ?>
+			<?php echo do_shortcode($content); ?>
+		<?php echo '</'.$element.'>'; ?>
+		
+		<?php return ob_get_clean(); ?>
+	<?php
+	}
+}
+
+
+
+/* Call the Inline__Typography() Class to activate shortcode
+ *
+ *  
+ */	
+
+add_action('wp_head','activate_t_shortcode');
+function activate_t_shortcode(){
+
+	new Inline__Typography();
 
 }
 
-?>
+
+
+
+
+
+
+
+
+
+/* the cold, final swig of coffee */ ?>
