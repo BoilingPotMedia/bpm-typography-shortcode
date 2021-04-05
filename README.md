@@ -8,23 +8,24 @@ BPM uses the typography shortcode to ensure that custom styles remain intact. Th
 
 Includes one shortcode:
 
-* [t]Content[/t]
+* [f]Content[/f]
 
-T (typography) accepts two parameters: 
+F (typography) accepts three parameters: 
 
-S (style)
-ELM (element)
+e - element
+c - class
+i - inline style
 
 If you use the following line in the WordPress Editor:
 
-    Regular [t s="bold"]bold[/t] regular.
+    Regular [f c="bold"]bold[/t] regular.
 
 The result on the published page will be:
 Regular **bold** regular.
 
 The result as HTML will be:
 
-    Regular <span class="type bold">bold</span> regular.
+    Regular <span class="bold">bold</span> regular.
 
 Any ammount of text can be wrapped in a Typography shortcode - one letter, or one page. Any alphabet charachter can be passed into the style parameter. In addition, dashes may be used. 
 
