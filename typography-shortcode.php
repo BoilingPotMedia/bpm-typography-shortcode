@@ -10,44 +10,45 @@ License:
 class Inline__Typography {
 
 
-	public function __construct() {
+    public function __construct() {
     	$this->Inline__Typography__Callback();
-	}   
+    }   
 		
 
     public function Inline__Typography__Callback(){
-        add_shortcode( 't' , array( $this, 'bpm__content__t_shortcode_callback'));    
+        add_shortcode( 'f' , array( $this, 'bpm__content__f_shortcode_callback'));    
     }
     
 
- 	/* bpm__content__hr_shortcode_callback
+ 	/* bpm__content__f_shortcode_callback
 	 *
 	 * Usage
-	 * [t &params ]
+	 * [f &params ]
 	 *
 	 * Params
 	 *
-	 * @ s			- (optional) shorthand for style - pass any CSS classes
-	 * @ elm		- (optional) defaults to 'span', pass any valid HTML elm
+	 * @ e			- (optional) element - pass any valid HTML elm. Default: span
+	 * @ c			- (optional) class - pass any CSS classes as string. EG: c="tag green"
+	 * @ i			- (optional) inline-css - pass any CSS styles as string. EG: i="font-size:20px;color:red;"
 	 */	
 	public function bpm__content__t_shortcode_callback( $atts, $content = NULL ) {
 
 		$a = shortcode_atts( array(
-			's' => '',
-			'elm' => '',
+			'e' => '',
+			'c' => '',
+			'i' => '',
 		), $atts );		
 
 		$id = bpm_make_id(5);
 		
-		$classes = 'type ';
-		$classes = $atts['s'] ?? '';
+		$element = $atts['e'] ?? 'span';		
+		$classes = $atts['c'] ?? '';
+		$inline = $atts['i'] ?? '';		
 		
-		$element = $atts['elm'] ?? 'span';
-  		
 		ob_start();
 		?>
 		
-		<?php echo '<'.$element.' class="'. $classes .'" >'; ?>
+		<?php echo '<'.$element.' class="'. $classes .'" style="'. $inline .'" >'; ?>
 			<?php echo do_shortcode($content); ?>
 		<?php echo '</'.$element.'>'; ?>
 		
