@@ -31,7 +31,7 @@ class Inline__Typography {
 	 * @ c			- (optional) class - pass any CSS classes as string. EG: c="tag green"
 	 * @ i			- (optional) inline-css - pass any CSS styles as string. EG: i="font-size:20px;color:red;"
 	 */	
-	public function bpm__content__t_shortcode_callback( $atts, $content = NULL ) {
+	public function bpm__content__f_shortcode_callback( $atts, $content = NULL ) {
 
 		$a = shortcode_atts( array(
 			'e' => '',
@@ -64,8 +64,8 @@ class Inline__Typography {
  *  
  */	
 
-add_action('wp_head','activate_t_shortcode');
-function activate_t_shortcode(){
+add_action('wp_head','activate_f_shortcode');
+function activate_f_shortcode(){
 
 	new Inline__Typography();
 
