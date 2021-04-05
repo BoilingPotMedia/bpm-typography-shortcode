@@ -3,7 +3,7 @@
 Plugin Name: Typography Shortcode
 Description: Wrap text in span containers with CSS classes.
 Author: Boiling Pot Media
-Version: 1.0
+Version: 2.0
 License: 
 */
 
